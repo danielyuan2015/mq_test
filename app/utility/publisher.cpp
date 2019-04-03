@@ -13,9 +13,10 @@ using namespace std;
 
 int main ()
 {
-    void *context = zmq_ctx_new ();
-    void *publisher = zmq_socket (context, ZMQ_PUB);
-    int rc = zmq_bind (publisher, "tcp://*:5556");
+    void *context = zmq_ctx_new();
+    void *publisher = zmq_socket(context, ZMQ_PUB);
+    //int rc = zmq_bind (publisher, "tcp://*:5556");
+    int rc = zmq_bind(publisher, "inproc://#1");
     assert (rc == 0);
 
     //  Initialize random number generator
